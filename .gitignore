@@ -1,0 +1,7 @@
+syntax: glob
+build/*
+build-*
+*/build*
+*/build-*
+*.txt.user*
+*puzzles*
