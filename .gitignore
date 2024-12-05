@@ -1,0 +1,8 @@
+syntax: glob
+build/*
+build-*
+*/build*
+*/build-*
+*.txt.user*
+*input.h
+*puzzles.txt
