@@ -18,10 +18,10 @@ int main()
 {
     const auto start {std::chrono::steady_clock::now()};
 
-    // test_equal(part_one::get_result(input::test), 143);
-    // test_equal(part_one::get_result(input::data), 5588);
-    // test_equal(part_two::get_result(input::test), 123);
-    test_equal(part_two::get_result(input::data), 53592);
+    test_equal(part_one::get_result(input::test), 143);
+    test_equal(part_one::get_result(input::data), 5588);
+    test_equal(part_two::get_result(input::test), 123);
+    test_equal(part_two::get_result(input::data), 5331);
 
     const auto end {std::chrono::steady_clock::now()};
     const auto elapsed_time = std::chrono::duration_cast<std::chrono::microseconds>(end - start);

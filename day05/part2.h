@@ -3,7 +3,6 @@
 #include <algorithm>
 #include <fmt/ranges.h>
 #include <ranges>
-#include <spanstream>
 #include <string_view>
 #include <vector>
 
@@ -15,13 +14,9 @@ namespace part_two
     std::vector<std::pair<int, int>> page_ordering_rules {};
 
     return std::ranges::fold_left(document | std::views::split('\n'), 0, [&](int sum, auto&& line) {
-        std::ispanstream stream(line);
         if (std::ranges::contains(line, '|')) {
-            int  left_page {};
-            char sep {};
-            int  right_page {};
-            stream >> left_page >> sep >> right_page;
-            page_ordering_rules.emplace_back(left_page, right_page);
+            const auto str = line | std::ranges::to<std::string>();
+            page_ordering_rules.emplace_back(std::stoi(str.substr(0,2)), std::stoi(str.substr(3,2)));
         } else if (std::ranges::contains(line, ',')) {
             auto update_page_numbers
                 = line | std::views::split(',') | std::views::transform([](auto&& page) {
